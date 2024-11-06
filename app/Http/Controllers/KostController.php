@@ -48,7 +48,6 @@ class KostController extends Controller
         $validatedData['facility_count'] = count($validatedData['facility']);
         $validatedData['facility'] = implode(', ', $validatedData['facility']);
 
-
         Kost::create($validatedData);
 
         return redirect()->route('kost.index')->with('success', 'Kost berhasil ditambahkan!');
