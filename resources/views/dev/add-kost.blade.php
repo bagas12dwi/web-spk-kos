@@ -81,6 +81,15 @@
                     <label class="form-check-label" for="">Kamar Mandi</label>
                 </div>
             </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Alamat</label>
+                <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="map" class="form-label">Map</label>
+                <textarea class="form-control" name="map" id="map" rows="3"></textarea>
+            </div>
+
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
 
@@ -88,7 +97,8 @@
             @forelse ($kosts as $kost)
                 <div class="col-4 col-md-4 col-sm-6 col-lg-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="{{ $kost->img_path != null ? URL::asset('storage/' . $kost->img_path) : URL::asset('assets/img/no-img.svg') }}"
+                            class="card-img-top" alt="Foto Kost" style="height: 15em; object-fit: cover">
                         <div class="card-body">
                             <h5 class="card-title">{{ $kost->name }}</h5>
                             <h6 class="card-text">Rp. {{ number_format($kost->price, 2, ',', '.') }}</h6>
