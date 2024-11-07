@@ -33,4 +33,14 @@ class HitungController extends Controller
             ->get();
         return response()->json($kost);
     }
+
+    public function detail($id)
+    {
+        $kost = Kost::where('id', $id)->first();
+
+        return view('menu.hitung.detail', [
+            'title' => $kost->name,
+            'kost' => $kost
+        ]);
+    }
 }

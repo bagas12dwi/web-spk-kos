@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Fuzzy Kost</title>
+    <title>CostKost | {{ $title }}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,7 +17,9 @@
         @include('components.navbar')
     </header>
     <main>
-        @yield('konten')
+        <div class="p-4">
+            @yield('konten')
+        </div>
     </main>
     <footer>
         <!-- place footer here -->

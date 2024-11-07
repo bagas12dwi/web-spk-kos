@@ -4,6 +4,7 @@ use App\Http\Controllers\HitungController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\RangeController;
+use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/hitung', [HitungController::class, 'index'])->name('hitung');
-Route::get('/detail/{id}', [HitungController::class, 'index'])->name('detail');
+Route::get('/detail/{id}', [HitungController::class, 'detail'])->name('detail');
+Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 Route::get('/caridata/{total}', [HitungController::class, 'caridata']);
 
 

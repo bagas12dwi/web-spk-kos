@@ -60,8 +60,9 @@ class RangeController extends Controller
     public function edit(Range $range)
     {
         $range = Range::findOrFail($range->id);
+        $title = 'Range';
 
-        return view('dev.range.edit-range', compact('range'));
+        return view('dev.range.edit-range', compact('range', 'title'));
     }
 
     /**

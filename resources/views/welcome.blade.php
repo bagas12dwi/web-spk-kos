@@ -11,8 +11,8 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12">
                 <div class="text-end">
-                    <img src="{{ URL::asset('assets/img/bg.jpg') }}" alt="bg kost"
-                        style="max-width: 23em; object-fit: cover">
+                    <img src="{{ URL::asset('assets/img/bg.jpg') }}" alt="bg kost" style="max-width: 23em; object-fit: cover"
+                        class="rounded">
                 </div>
             </div>
         </div>

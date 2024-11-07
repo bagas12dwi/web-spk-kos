@@ -90,21 +90,7 @@
                             <div class="col-lg-10 col-md-10 col-sm-12">
                                 <div class="card-kost">
                                     <div class="row justify-content-start">
-                                        <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
-                                            <div class="card" style="width: 18rem;">
-                                                <img src="{{ URL::asset('assets/img/no-img.svg') }}" class="card-img-top"
-                                                    alt="..." style="height: 15em; object-fit: cover">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card
-                                                        title and
-                                                        make up
-                                                        the
-                                                        bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
