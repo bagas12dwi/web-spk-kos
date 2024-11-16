@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h3 class="fw-bold">{{ $kost->name }}</h3>
-                    <h4 class="fw-semibold">{{ $kost->price }}</h4>
+                    <h4 class="fw-semibold">Rp. {{ number_format($kost->price, 2, ',', '.') }}</h4>
                     <h6>{{ $kost->facility }}</h6>
                     <p>{{ $kost->address }}</p>
                 </div>
