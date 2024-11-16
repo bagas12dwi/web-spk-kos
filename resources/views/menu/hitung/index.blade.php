@@ -71,8 +71,9 @@
                 <div class="col-lg-10 col-md-10 col-sm-6">
                     <div class="d-flex">
                         <label for="hasil" class="form-label fw-bold">Harga Prediksi</label>
-                        <input type="number" class="form-control" name="hasil" id="hasil"
+                        <input type="text" class="form-control" name="hasil" id="hasil"
                             aria-describedby="helpId" placeholder="" disabled />
+                        <input type="hidden" name="hid_hasil" id="hid_hasil">
                     </div>
                 </div>
             </div>
@@ -142,7 +143,7 @@
             });
 
             $('#cariRekomendasi').on('click', function() {
-                let total = $('#hasil').val();
+                let total = $('#hid_hasil').val();
 
                 if (total) {
                     $.ajax({
@@ -160,20 +161,29 @@
                                     let detailUrl = `{{ route('detail', ':id') }}`
                                         .replace(':id', item.id);
 
+                                    // Format the price
+                                    let harga = item.price;
+                                    let formattedResult = new Intl.NumberFormat(
+                                        'id-ID', {
+                                            style: 'currency',
+                                            currency: 'IDR',
+                                            minimumFractionDigits: 2
+                                        }).format(harga);
 
+                                    // Append to kostContainer
                                     kostContainer.append(`
-                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="${imageUrl}" style="height: 15em; object-fit: cover">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${item.name}</h5>
-                                                <p class="card-text">${item.address || 'No address available.'}</p>
-                                                <p class="card-text">Harga: ${item.price}</p>
-                                                <a href="${detailUrl}" class="btn btn-primary">Lihat Detail</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `);
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="${imageUrl}" style="height: 15em; object-fit: cover">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.name}</h5>
+                        <p class="card-text">${item.address || 'No address available.'}</p>
+                        <p class="card-text">Harga: ${formattedResult}</p>
+                        <a href="${detailUrl}" class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        `);
                                 });
                             } else {
                                 kostContainer.append(
@@ -395,7 +405,15 @@
 
                 }
 
-                $('#hasil').val(Math.round(temp1 / temp2));
+                let hasil = Math.round(temp1 / temp2);
+                let formattedResult = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 2
+                }).format(hasil);
+
+                $('#hasil').val(formattedResult);
+                $('#hid_hasil').val(hasil);
                 return Math.round(temp1 / temp2);
             }
 
