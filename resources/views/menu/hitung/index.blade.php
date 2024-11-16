@@ -60,7 +60,7 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="fasilitas" name="fasilitas"
                             value="Kamar Mandi" />
-                        <label class="form-check-label" for="">Kamar Mandi</label>
+                        <label class="form-check-label" for="">Kamar Mandi Dalam</label>
                     </div>
                 </div>
             </div>
