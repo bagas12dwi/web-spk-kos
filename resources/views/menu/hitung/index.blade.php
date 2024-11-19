@@ -135,6 +135,7 @@
                 $('input[name="fasilitas"]:checked').each(function() {
                     fasilitas++;
                 });
+
                 $('#hasil').val('');
 
                 prediksiHarga();
@@ -231,8 +232,11 @@
 
             function fasilitasBiasa() {
                 const rangeBiasa = findRangeFasilitas('Biasa');
+
                 if (rangeBiasa) {
-                    if (rangeBiasa.lower_limit >= fasilitas) {
+                    console.log('abc');
+
+                    if (rangeBiasa.lower_limit <= fasilitas) {
                         return 0;
                     } else if (fasilitas => rangeBiasa.lower_limit && fasilitas < rangeBiasa.upper_limit) {
                         return parseFloat(((rangeBiasa.upper_limit - fasilitas) / (rangeBiasa.upper_limit -
