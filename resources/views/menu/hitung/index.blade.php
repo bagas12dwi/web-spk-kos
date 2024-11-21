@@ -66,7 +66,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-2 col-md-2 col-sm-6">
-                    <button type="submit" class="btn btn-primary px-5" id="proses">Cari</button>
+                    <button type="submit" class="btn btn-primary px-5" id="proses">Prediksi</button>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-6">
                     <div class="d-flex">
