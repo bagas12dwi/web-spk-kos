@@ -279,7 +279,7 @@
                     return parseFloat(((jarak - rangeSedang.lower_limit) / (rangeDekat.upper_limit - rangeSedang
                         .lower_limit)).toFixed(2));
                 } else if (rangeDekat.upper_limit <= jarak && jarak <= rangeSedang.upper_limit) {
-                    return parseFloat(((rangeSedang.upper_limit - jarakDekat) / (rangeSedang.upper_limit -
+                    return parseFloat(((rangeSedang.upper_limit - jarak) / (rangeSedang.upper_limit -
                         rangeDekat.upper_limit)).toFixed(2));
                 } else {
                     return 0;
@@ -288,6 +288,7 @@
 
             function jarakJauh() {
                 const rangeJauh = findRangeJarak('Jauh');
+
                 if (jarak >= rangeJauh.upper_limit) {
                     return 1;
                 } else if (rangeJauh.lower_limit <= jarak && jarak <= rangeJauh.upper_limit) {
@@ -407,6 +408,9 @@
                     console.log('z[' + i + '] ' + z[i]);
 
                 }
+
+                console.log(temp1);
+                console.log(temp2);
 
                 let hasil = Math.round(temp1 / temp2);
                 let formattedResult = new Intl.NumberFormat('id-ID', {
