@@ -173,18 +173,18 @@
 
                                     // Append to kostContainer
                                     kostContainer.append(`
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="${imageUrl}" style="height: 15em; object-fit: cover">
-                    <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">${item.address || 'No address available.'}</p>
-                        <p class="card-text">Harga: ${formattedResult}</p>
-                        <a href="${detailUrl}" class="btn btn-primary">Lihat Detail</a>
-                    </div>
-                </div>
-            </div>
-        `);
+                                        <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="${imageUrl}" style="height: 15em; object-fit: cover">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${item.name}</h5>
+                                                    <p class="card-text">${item.address || 'No address available.'}</p>
+                                                    <p class="card-text">Harga: ${formattedResult}</p>
+                                                    <a href="${detailUrl}" class="btn btn-primary">Lihat Detail</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `);
                                 });
                             } else {
                                 kostContainer.append(
@@ -234,15 +234,14 @@
                 const rangeBiasa = findRangeFasilitas('Biasa');
 
                 if (rangeBiasa) {
-                    console.log('abc');
 
-                    if (rangeBiasa.lower_limit <= fasilitas) {
-                        return 0;
+                    if (fasilitas <= rangeBiasa.lower_limit) {
+                        return 1;
                     } else if (fasilitas => rangeBiasa.lower_limit && fasilitas < rangeBiasa.upper_limit) {
                         return parseFloat(((rangeBiasa.upper_limit - fasilitas) / (rangeBiasa.upper_limit -
                             rangeBiasa.lower_limit)).toFixed(2));
                     } else {
-                        return 1;
+                        return 0;
                     }
                 }
             }
