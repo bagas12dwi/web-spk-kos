@@ -234,13 +234,16 @@
                 const rangeBiasa = findRangeFasilitas('Biasa');
 
                 if (rangeBiasa) {
-
                     if (fasilitas <= rangeBiasa.lower_limit) {
+                        console.log('abc');
                         return 1;
-                    } else if (fasilitas => rangeBiasa.lower_limit && fasilitas < rangeBiasa.upper_limit) {
+                    } else if (fasilitas >= rangeBiasa.lower_limit && fasilitas < rangeBiasa.upper_limit) {
+                        console.log('def');
+                        console.log('range biasa upper limit : ' + rangeBiasa.upper_limit);
                         return parseFloat(((rangeBiasa.upper_limit - fasilitas) / (rangeBiasa.upper_limit -
                             rangeBiasa.lower_limit)).toFixed(2));
                     } else {
+                        console.log('ghi');
                         return 0;
                     }
                 }
@@ -351,48 +354,63 @@
             }
 
             function aturan() {
+                // DKB MU
                 alfa[0] = findMin(fasilitasBiasa(), ukuranSempit(), jarakDekat());
                 z[0] = hargaMurah(alfa[0]);
 
+                // DSB MU
                 alfa[1] = findMin(fasilitasBiasa(), ukuranSedang(), jarakDekat());
                 z[1] = hargaMurah(alfa[1]);
 
+                // DBB MA
                 alfa[2] = findMin(fasilitasBiasa(), ukuranLuas(), jarakDekat());
                 z[2] = hargaMahal(alfa[2]);
 
+                // DBL MA
                 alfa[3] = findMin(fasilitasLengkap(), ukuranLuas(), jarakDekat());
                 z[3] = hargaMahal(alfa[3]);
 
+                // DSL MA
                 alfa[4] = findMin(fasilitasLengkap(), ukuranSedang(), jarakDekat());
                 z[4] = hargaMahal(alfa[4]);
 
+                // SKB MU
                 alfa[5] = findMin(fasilitasBiasa(), ukuranSempit(), jarakSedang());
                 z[5] = hargaMurah(alfa[5]);
 
+                // SSB MU
                 alfa[6] = findMin(fasilitasBiasa(), ukuranSedang(), jarakSedang());
                 z[6] = hargaMurah(alfa[6]);
 
+                // SBB MU
                 alfa[7] = findMin(fasilitasBiasa(), ukuranLuas(), jarakSedang());
                 z[7] = hargaMurah(alfa[7]);
 
+                // SSL MA
                 alfa[8] = findMin(fasilitasLengkap(), ukuranSedang(), jarakSedang());
                 z[8] = hargaMahal(alfa[8]);
 
+                // SBL MA
                 alfa[9] = findMin(fasilitasLengkap(), ukuranLuas(), jarakSedang());
                 z[9] = hargaMahal(alfa[9]);
 
+                // JKB MU
                 alfa[10] = findMin(fasilitasBiasa(), ukuranSempit(), jarakJauh());
                 z[10] = hargaMurah(alfa[10]);
 
+                // JSB MU
                 alfa[11] = findMin(fasilitasBiasa(), ukuranSedang(), jarakJauh());
                 z[11] = hargaMurah(alfa[11]);
 
+                // JBB MU
                 alfa[12] = findMin(fasilitasBiasa(), ukuranLuas(), jarakJauh());
                 z[12] = hargaMurah(alfa[12]);
 
+                // JSL MA
                 alfa[13] = findMin(fasilitasLengkap(), ukuranSedang(), jarakJauh());
                 z[13] = hargaMahal(alfa[13]);
 
+                // JBL MA
                 alfa[14] = findMin(fasilitasLengkap(), ukuranLuas(), jarakJauh());
                 z[14] = hargaMahal(alfa[14]);
 
@@ -408,9 +426,6 @@
                     console.log('z[' + i + '] ' + z[i]);
 
                 }
-
-                console.log(temp1);
-                console.log(temp2);
 
                 let hasil = Math.round(temp1 / temp2);
                 let formattedResult = new Intl.NumberFormat('id-ID', {
